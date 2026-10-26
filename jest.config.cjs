@@ -22,4 +22,9 @@ module.exports = {
       },
     ],
   },
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/main.tsx',
+  ],
 };
