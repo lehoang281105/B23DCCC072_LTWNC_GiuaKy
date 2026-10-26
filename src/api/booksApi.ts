@@ -1,0 +1,153 @@
+import type { ApiResponse } from '../types/api';
+import type { Book } from '../types/book';
+
+export const INITIAL_BOOKS: Book[] = [
+  {
+    id: 'book-1',
+    title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
+    author: 'Robert C. Martin',
+    category: 'CNTT',
+    publishYear: 2008,
+    totalCopies: 5,
+    availableCopies: 3,
+    coverUrl: 'https://images.viblo.asia/7c27baf5-2948-4275-8e02-fb472cee8195.jpg',
+    description: 'Cuốn cẩm nang kinh điển về nghệ thuật viết mã nguồn sạch, dễ bảo trì và mở rộng cho lập trình viên chuyên nghiệp.',
+    pages: 464,
+    rating: 4.8,
+  },
+  {
+    id: 'book-2',
+    title: 'Designing Data-Intensive Applications',
+    author: 'Martin Kleppmann',
+    category: 'CNTT',
+    publishYear: 2017,
+    totalCopies: 4,
+    availableCopies: 1,
+    coverUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
+    description: 'Khám phá các nguyên lý kiến trúc đằng sau hệ thống xử lý dữ liệu quy mô lớn, phân tán và chịu lỗi cao.',
+    pages: 616,
+    rating: 4.9,
+  },
+  {
+    id: 'book-3',
+    title: 'The Pragmatic Programmer: Your Journey To Mastery',
+    author: 'David Thomas & Andrew Hunt',
+    category: 'CNTT',
+    publishYear: 2019,
+    totalCopies: 3,
+    availableCopies: 0,
+    coverUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80',
+    description: 'Lời khuyên thực tiễn giúp bạn phát triển tư duy nghề nghiệp và kỹ năng giải quyết vấn đề từ lập trình viên nghiệp dư lên bậc thầy.',
+    pages: 352,
+    rating: 4.7,
+  },
+  {
+    id: 'book-4',
+    title: 'Learning TypeScript: Enhance Your Web Development Skills',
+    author: 'Josh Goldberg',
+    category: 'CNTT',
+    publishYear: 2022,
+    totalCopies: 4,
+    availableCopies: 2,
+    coverUrl: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80',
+    description: 'Làm chủ hệ thống type nâng cao, generics và các pattern tối ưu trong TypeScript từ cơ bản đến nâng cao.',
+    pages: 330,
+    rating: 4.6,
+  },
+  {
+    id: 'book-5',
+    title: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    category: 'Kinh tế',
+    publishYear: 2020,
+    totalCopies: 6,
+    availableCopies: 4,
+    coverUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=600&q=80',
+    description: 'Những bài học vượt thời gian về sự giàu có, lòng tham và hạnh phúc qua góc nhìn tâm lý học tài chính.',
+    pages: 256,
+    rating: 4.8,
+  },
+  {
+    id: 'book-6',
+    title: 'Kinh tế học vĩ mô (Principles of Macroeconomics)',
+    author: 'N. Gregory Mankiw',
+    category: 'Kinh tế',
+    publishYear: 2020,
+    totalCopies: 5,
+    availableCopies: 2,
+    coverUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80',
+    description: 'Giáo trình chuẩn mực về các chỉ số kinh tế quốc gia, lạm phát, thất nghiệp và chính sách tài khóa tiền tệ.',
+    pages: 580,
+    rating: 4.5,
+  },
+  {
+    id: 'book-7',
+    title: 'Thinking, Fast and Slow',
+    author: 'Daniel Kahneman',
+    category: 'Kinh tế',
+    publishYear: 2011,
+    totalCopies: 3,
+    availableCopies: 0,
+    coverUrl: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80',
+    description: 'Khám phá hai hệ thống tư duy chi phối mọi quyết định kinh tế và phán đoán của con người đoạt giải Nobel.',
+    pages: 499,
+    rating: 4.6,
+  },
+  {
+    id: 'book-8',
+    title: 'English Grammar in Use (5th Edition)',
+    author: 'Raymond Murphy',
+    category: 'Ngoại ngữ',
+    publishYear: 2019,
+    totalCopies: 8,
+    availableCopies: 5,
+    coverUrl: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80',
+    description: 'Bộ tài liệu tự học ngữ pháp tiếng Anh trung cấp được sinh viên và giảng viên toàn cầu tin cậy nhất.',
+    pages: 390,
+    rating: 4.9,
+  },
+  {
+    id: 'book-9',
+    title: 'Oxford Collocations Dictionary for Students of English',
+    author: 'Colin McIntosh',
+    category: 'Ngoại ngữ',
+    publishYear: 2018,
+    totalCopies: 4,
+    availableCopies: 2,
+    coverUrl: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80',
+    description: 'Từ điển kết hợp từ giúp sinh viên nâng cao vốn từ vựng học thuật, viết luận chuyên ngành tự nhiên như người bản xứ.',
+    pages: 960,
+    rating: 4.7,
+  },
+  {
+    id: 'book-10',
+    title: 'IELTS Academic Writing Task 2 Target Band 8.0+',
+    author: 'Rachel Mitchell',
+    category: 'Ngoại ngữ',
+    publishYear: 2021,
+    totalCopies: 5,
+    availableCopies: 3,
+    coverUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80',
+    description: 'Chiến thuật và cấu trúc câu ăn điểm cao cho bài thi viết học thuật chuyên ngành của sinh viên quốc tế.',
+    pages: 240,
+    rating: 4.6,
+  },
+];
+
+export function fetchBooks(simulateError = false): Promise<ApiResponse<Book[]>> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (simulateError) {
+        resolve({
+          ok: false,
+          error: 'Không thể kết nối đến máy chủ thư viện! Vui lòng thử lại sau.',
+        });
+      } else {
+        resolve({
+          ok: true,
+          data: [...INITIAL_BOOKS],
+        });
+      }
+    }, 500);
+  });
+}
