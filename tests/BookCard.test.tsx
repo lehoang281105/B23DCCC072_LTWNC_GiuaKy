@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { BookCard } from './BookCard';
-import type { Book } from '../../../types/book';
+import { BookCard } from '../src/features/books/components/BookCard';
+import type { Book } from '../src/types/book';
 
 const mockBook: Book = {
   id: 'b1',
@@ -14,7 +14,7 @@ const mockBook: Book = {
   pages: 464,
   coverUrl: '/cover.jpg',
   rating: 4.8,
-  description: 'A handbook of agile software craftsmanship.'
+  description: 'A handbook of agile software craftsmanship.',
 };
 
 describe('BookCard component', () => {

@@ -6,8 +6,8 @@ import booksReducer, {
   fetchBooksThunk,
   initialState,
   type BooksState,
-} from './booksSlice';
-import type { Book } from '../../types/book';
+} from '../src/features/books/booksSlice';
+import type { Book } from '../src/types/book';
 
 const mockBook1: Book = {
   id: 'b-1',

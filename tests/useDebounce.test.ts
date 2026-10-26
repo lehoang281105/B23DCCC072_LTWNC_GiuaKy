@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useDebounce } from './useDebounce';
+import { useDebounce } from '../src/hooks/useDebounce';
 
 describe('useDebounce hook', () => {
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('useDebounce hook', () => {
     const { result, rerender } = renderHook(
       ({ value, delay }) => useDebounce(value, delay),
       {
-        initialProps: { value: 'initial', delay: 300 }
+        initialProps: { value: 'initial', delay: 300 },
       }
     );
 

@@ -20,7 +20,7 @@ export const DiscoverPage: React.FC = () => {
   const selectedCategory = useFilterStore((state) => state.selectedCategory);
   const debouncedSearchKeyword = useDebounce<string>(rawSearchKeyword, 300);
 
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -28,12 +28,10 @@ export const DiscoverPage: React.FC = () => {
     }
   }, [status, dispatch]);
 
-  useEffect(() => {
-    if (selectedBook) {
-      const updated = books.find((b) => b.id === selectedBook.id);
-      if (updated) setSelectedBook(updated);
-    }
-  }, [books, selectedBook?.id]);
+  const selectedBook = useMemo(() => {
+    if (!selectedBookId) return null;
+    return books.find((b) => b.id === selectedBookId) ?? null;
+  }, [books, selectedBookId]);
 
   const filteredBooks = useMemo(() => {
     return books.filter((book) => {
@@ -65,11 +63,11 @@ export const DiscoverPage: React.FC = () => {
   );
 
   const handleSelectBook = useCallback((book: Book) => {
-    setSelectedBook(book);
+    setSelectedBookId(book.id);
   }, []);
 
   const handleCloseDrawer = useCallback(() => {
-    setSelectedBook(null);
+    setSelectedBookId(null);
   }, []);
 
   const handleRetry = () => {
